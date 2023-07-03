@@ -6,11 +6,11 @@
   "author": "Ferretmaster",
   "version": "1.00",
   "build": "116982",
-  "date": "2023-07-02",
+  "date": "2023-07-03",
   "signature": "not yet implemented",
   "forum":"",
   "priority": 100,
-  "icon": "https://i.imgur.com/18OxRkE.gif",
+  "icon": "https://github.com/ferret-Master/sandbox-utilities/blob/main/forgebot.png?raw=true",
   "scenes": {
     "settings": [
       "coui://ui/mods/sandbox_utilities/keybinds.js"
