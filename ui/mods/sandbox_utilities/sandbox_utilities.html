@@ -1,0 +1,67 @@
+<link href="coui://ui/mods/sandbox_utilities/live_game_sandbox.css" rel="stylesheet" type="text/css" />
+
+<div class='activeFaction' id = "sandbox-check">Faction<img id = "activeFaction" src='' onclick='model.toggleFaction()'/></div>
+
+<label for="unitFilter">
+    <loc id = "checkbox-container">copy selection</loc><br>
+    <div id = "sandbox-hotkey" data-bind="text: copySelectionHotkey"></div>
+    <loc id = "checkbox-container">paste selection</loc><br>
+    <div id = "sandbox-hotkey" data-bind="text: pasteSelectionHotkey"></div>
+    <loc id = "checkbox-container">toggle window</loc>
+    <div id = "sandbox-hotkey" data-bind="text: toggleWindowHotkey"></div>
+</label>
+
+
+<div class="form-group" id = "unitFilterForm">
+    <label for="unitFilter">
+        <loc id = "checkbox-container">Unit Filter</loc><br>
+        <loc id = "checkbox-container">("," separates clauses)</loc>
+    </label>
+
+    <input id="unitFilter" type="text" name="unitFilter" class="input_text" placeholder="" data-bind="hasfocus: filterSelected,textInput: filterInput"/>
+</div>
+
+<div id = "checkbox-container">
+<loc>highlight modded</loc><div id = "sandbox-check"> <input type="checkbox"
+data-bind="checked: highlightModded" /></div>
+
+<loc>hide modded</loc> <div id = "sandbox-check"> <input type="checkbox"
+data-bind="checked: hideModded" /></div>
+
+<loc>hide un-modded</loc><div id = "sandbox-check">  <input type="checkbox"
+data-bind="checked: hideVanilla" /></div>
+
+<loc>hide com skins</loc><div id = "sandbox-check">  <input type="checkbox"
+data-bind="checked: hideVariants" /></div>
+
+<loc>hide no-build</loc><div id = "sandbox-check">  <input type="checkbox"
+data-bind="checked: hideNoBuild" /></div>
+
+<loc>show custom tags</loc><div id = "sandbox-check">  <input type="checkbox"
+data-bind="checked: showCustomTags" /></div>
+
+<loc>Copied Selection</loc>
+<div class="div_unit_list">
+    <!-- ko foreach: copiedSelection -->
+        <div class="div_unit_selection btn_std_ix" data-bind="event: { mousedown: function (data, event) { $parent.onSelectionDisplayClick($index(), event) } }">
+            <a href="#">
+                <img class="img_selected_unit" src="" data-bind="attr: { src: $data.icon }" />
+            </a>
+            <span class="span_selection_group span_hotkey" data-bind="text: $data.group, visible: $data.hasGroup"></span>
+            <span class="span_selection_count stat_num" data-bind="text: $data.count"></span>
+            <div class="close btn_win" data-bind="event: { mousedown: function (data, event) { $parent.onSelectionDisplayClick($index(), event, true) } }, mousedownBubble: false"></div>
+        </div>
+    <!-- /ko -->
+    <div class="buffer"></div>
+</div>
+
+</div>
+
+<script>
+
+    $("#activeFaction").attr("src", "coui://ui/mods/build_bar_tabs/live_game/img/all.png");
+
+    ko.cleanNode(document.getElementById("sandbox_utilities"));
+    ko.applyBindings(model, document.getElementById("sandbox_utilities"));
+
+</script>

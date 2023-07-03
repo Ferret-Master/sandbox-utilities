@@ -1,0 +1,29 @@
+{
+  "context": "client",
+  "identifier": "com.pa.ferretmaster.sandbox-utilities",
+  "display_name": "Sandbox Utilities",
+  "description": "A mod that enhances the sandbox experience and adds many utilities",
+  "author": "Ferretmaster",
+  "version": "1.00",
+  "build": "116982",
+  "date": "2023-07-02",
+  "signature": "not yet implemented",
+  "forum":"",
+  "priority": 100,
+  "icon": "https://i.imgur.com/18OxRkE.gif",
+  "scenes": {
+    "settings": [
+      "coui://ui/mods/sandbox_utilities/keybinds.js"
+    ],
+    "live_game": [
+      "coui://ui/mods/sandbox_utilities/keybinds.js",
+      "coui://ui/mods/sandbox_utilities/live_game.js"
+
+    ],
+    "live_game_sandbox": [
+      "coui://ui/mods/sandbox_utilities/live_game_sandbox.css",
+      "coui://ui/mods/sandbox_utilities/live_game_sandbox.js",
+      "coui://ui/mods/sandbox_utilities/keybinds.js"
+    ]
+  }
+}
