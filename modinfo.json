@@ -2,7 +2,7 @@
   "context": "client",
   "identifier": "com.pa.ferretmaster.sandbox-utilities",
   "display_name": "Sandbox Utilities",
-  "description": "A mod that enhances the sandbox experience and adds many utilities",
+  "description": "A mod that improves the sandbox menu and adds additional features",
   "author": "Ferretmaster",
   "version": "1.00",
   "build": "116982",
@@ -25,5 +25,6 @@
       "coui://ui/mods/sandbox_utilities/live_game_sandbox.js",
       "coui://ui/mods/sandbox_utilities/keybinds.js"
     ]
-  }
+  },
+  "category": ["ui","titans", "in-game", "sandbox"]
 }
