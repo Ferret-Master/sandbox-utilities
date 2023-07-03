@@ -2,7 +2,7 @@
   "context": "client",
   "identifier": "com.pa.ferretmaster.sandbox-utilities",
   "display_name": "Sandbox Utilities",
-  "description": "A mod that improves the sandbox menu and adds additional features",
+  "description": "A mod that improves the sandbox display and adds additional features such as filters and selection copy/pasting",
   "author": "Ferretmaster",
   "version": "1.00",
   "build": "116982",
