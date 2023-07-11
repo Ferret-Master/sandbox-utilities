@@ -51,7 +51,13 @@
                                         mouseover: function () { model.sandbox_unit_hover($data.spec); },
                                         mouseout: function () { model.sandbox_unit_hover(''); }
                                     }">
-                                    <img class="img_build_unit" src="img/build_bar/units/build_unit_sample.png" data-bind="tooltip: tooltip, attr: { src: icon }" data-placement="bottom" />
+                                    
+                                    <!-- ko if: $data.icon !== undefined -->
+                                        <img class="img_build_unit" src="img/build_bar/units/build_unit_sample.png" data-bind="tooltip: tooltip, attr: { src: icon }" data-placement="bottom" />
+                                    <!-- /ko -->
+                                    <!-- ko if: $data.icon == undefined -->
+                                        <loc class="img_build_unit" id = "noImage" data-bind="text:$data.name" data-bind="tooltip: tooltip" data-placement="bottom"></loc>
+                                    <!-- /ko -->
                                 </a>
                             </div>
                             <!-- /ko -->

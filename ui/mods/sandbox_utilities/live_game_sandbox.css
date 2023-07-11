@@ -131,3 +131,13 @@
   width: 30px;
   margin: 0px;
 }
+
+#noImage {
+  color:yellow;
+  font-size: 9px;
+  align-items: center !important;
+  text-align: center !important;
+  word-wrap: normal;
+  display:flex;
+  margin: 0px;
+}

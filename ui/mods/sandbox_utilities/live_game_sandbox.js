@@ -127,11 +127,18 @@ function createCategories(unitTypes, unitSpec){
 
   typeValues = typeValues.sort(reverseSortNumber);
 
+  if(unitCategories["NoCustom"] == undefined){  unitCategories["NoCustom"] = {}}
+
   if(unitCategories[customNumber] == undefined){//push to the unit list and sort
     unitCategories[customNumber] = {};
   }
 
   var chosenCustom = unitCategories[customNumber];
+
+  if(chosenCustom["NoCustom"] == undefined){chosenCustom["NoCustom"] = {//defining first so it show at the top
+    "unitList":[]
+  }
+}
 
   if(chosenCustom[typeCategory] == undefined){
     chosenCustom[typeCategory] = { // needs css entry
@@ -247,15 +254,18 @@ model.sandbox_units_filtered = ko.computed(function() {
         var name = loc(unit.name);
         var modded = vanillaSpecList[unitSpec] == undefined;
         var hide = false;
+        var icon = buildImages[unitSpec]
+      
         if(model.highlightModded() == false){modded = false}
         return({
           spec: unitSpec,
           modded: modded,
-          icon: Build.iconForSpecId(unitSpec),
+          icon: icon,
           name: name,
           tooltip: name + ' ' + loc(unit.description),
           sort: unit.unit_name
         });
+       
       })		
 
     return new ko.observable([baseCategory[0], test]);
@@ -326,7 +336,20 @@ function getHotkeys(){
   model.toggleWindowHotkey(api.settings.getSynchronous('keyboard','toggle_sandbox_menu'));
 }
 
+function testImageSources(){
+  var units = _.keys(model.unitSpecs());
+  _.map(units, function(unit){
+    $.get(Build.iconForSpecId(unit)).then(function(){buildImages[unit] = Build.iconForSpecId(unit)}).fail(function(err){buildImages[unit] = undefined});
+  })
+  _.delay(function(){if(model.sandbox_expanded()){model.sandbox_expanded(!model.sandbox_expanded());model.sandbox_expanded(!model.sandbox_expanded())}},1000)
+}
 
+
+var buildImages = {//function runs through unit list to check build images and defines them as existing or not here
+
+}
+
+_.delay(testImageSources,1000);
 vanillaSpecList = {
 
   "/pa/units/air/l_air_bomb/l_air_bomb.json":true,
