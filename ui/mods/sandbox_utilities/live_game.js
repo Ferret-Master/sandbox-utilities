@@ -84,6 +84,12 @@ model.pasteArray = function(unitObject,army,planet,location,raw){
   })
 }
 
+ko.computed(function(){
+  var controlFlags = model.playerControlFlags();
+  for(i = 0; i< controlFlags.length;i++){
+    if(controlFlags[i] == true){model.pasteArmyId(i)}
+  }
+})
 
 model.pasteSelection = function() {
   if (!model.sandbox() || model.scenarioModel !== undefined) return
