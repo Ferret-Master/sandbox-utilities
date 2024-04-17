@@ -436,6 +436,7 @@ vanillaSpecList = {
   "/pa/units/land/l_titan_vehicle/l_titan_vehicle.json":true,
   "/pa/units/land/l_vehicle_factory/l_vehicle_factory.json":true,
   "/pa/units/land/l_vehicle_factory_adv/l_vehicle_factory_adv.json":true,
+  "/pa/units/land/radar_jamming/radar_jamming.json":true,
   "/pa/units/orbital/l_defense_satellite/l_defense_satellite.json":true,
   "/pa/units/orbital/l_delta_v_engine/l_delta_v_engine.json":true,
   "/pa/units/orbital/l_ion_defense/l_ion_defense.json":true,
