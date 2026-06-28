@@ -312,6 +312,8 @@ model.copiedSelection = ko.observable([])
 handlers.copySelection = function(payload){
 
   var tempArray = [];
+  var typesMap = {};
+  var unitSpecs = (typeof model.unitSpecs === 'function') ? model.unitSpecs() : null;
 
     _.map(payload,function(idArray,spec){
       tempArray.push(
@@ -321,9 +323,17 @@ handlers.copySelection = function(payload){
           "icon":Build.iconForSpecId(spec)
         }
       )
+      if (unitSpecs && unitSpecs[spec]) {
+        typesMap[spec] = unitSpecs[spec].types || [];
+      }
     })
-  
+
   model.copiedSelection(tempArray)
+  try {
+    api.Panel.message(api.Panel.parentId, 'copySelectionTypes', typesMap);
+  } catch (err) {
+    console.error('sandbox-utilities: failed to send copySelectionTypes', err);
+  }
 }
 
 handlers.toggleMenu = function(){
